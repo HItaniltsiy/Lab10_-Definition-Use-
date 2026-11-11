@@ -30,4 +30,10 @@ class BonusTest {
 
     @Test @DisplayName("all-DU-pairs: all absences preserve initial present definition")
     void B8() { assertEquals(0, DataFlowTargets.bonus(new int[]{0, 0}, 1)); }
+
+    @Test
+    @DisplayName("M2 kill: present grows across reset before a shorter streak")
+    void B9() {
+        assertEquals(0, DataFlowTargets.bonus(new int[]{1, 0, 1, 1, 1, 1}, 6));
+    }
 }
